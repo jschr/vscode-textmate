@@ -1,11 +1,11 @@
 {
-  "name": "vscode-textmate",
+  "name": "vscode-textmate-webpack",
   "version": "3.3.3",
   "description": "VSCode TextMate grammar helpers",
   "author": {
     "name": "Microsoft Corporation"
   },
-  "main": "./release/main.js",
+  "main": "./out/main.js",
   "typings": "./release/main.d.ts",
   "repository": {
     "type": "git",
@@ -19,10 +19,11 @@
     "watch": "tsc -watch",
     "compile": "tsc",
     "test": "npm run compile && mocha out/tests/tests",
-    "test-travis": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec out/tests/tests",
+    "test-travis":
+      "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec out/tests/tests",
     "benchmark": "node benchmark/benchmark.js",
     "inspect": "node scripts/inspect.js",
-    "prepublish": "node scripts/release.js"
+    "prepublish": "npm run compile"
   },
   "dependencies": {
     "fast-plist": "^0.1.2",
